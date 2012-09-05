@@ -142,10 +142,9 @@ def run():
         entries = []
         
         for entry in all_entries[:num]:
-            if entry in last_entries:
-                log('[skipping] %s(%s) already in %s.rss', entry['title'], entry['url'], num)
-                continue
-            entries.append(entry)
+            if entry not in last_entries:
+                log('[new] %s(%s) added to %s.rss', entry['title'], entry['url'], num)
+                entries.append(entry)
             
         entries.extend(last_entries)
         entries = entries[:1024]
