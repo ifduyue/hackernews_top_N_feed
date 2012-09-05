@@ -145,7 +145,6 @@ def run():
             if entry in last_entries:
                 log('[skipping] %s(%s) already in %s.rss', entry['title'], entry['url'], num)
                 continue
-            print entry
             entries.append(entry)
             
         entries.extend(last_entries)
