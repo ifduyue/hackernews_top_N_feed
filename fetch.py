@@ -58,15 +58,15 @@ def save_last_entries(obj, num):
     filename = 'last_entries.%d' % num
     dumpto(get_path('data', filename), obj)
 
-def mb_code(string, coding="utf-8"):
-    if isinstance(string, unicode):
-        return string.encode(coding)
+def mb_code(s, coding=None):
+    if isinstance(s, unicode):
+        return s if coding is None else s.encode(coding)
     for c in ('utf-8', 'gb2312', 'gbk', 'gb18030', 'big5'):
         try:
-            return string.decode(c).encode(coding)
-        except:
-            pass
-    return string
+            s = s.decode(c)
+            return s if coding is None else s.encode(coding)
+        except: pass
+    return s
 
 def log(msg, *args): 
     def init():
@@ -118,19 +118,15 @@ def get_rss_entries(url):
     return entries
 
 def write_rss_file(entries, num):
-    try:
-        template = get_path(filename='rss.mako')
-        template = Template(filename=template)
-        content = template.render(
-            entries = entries,
-            title = 'HackerNews Top %s Feed' % num,
-            url = 'http://hackernews.lyxint.com/',
-            description = 'HackerNews Top %s Feed, for your convenience' % num,
-            generator = 'https://github.com/lyxint/hackernews_top_N_feed',
-        )
-    except Exception, e:
-        log('[error] render top_%d.rss: %s', num, str(e))
-        return
+    template = get_path(filename='rss.mako')
+    template = Template(filename=template, output_encoding='utf-8', encoding_errors='replace')
+    content = template.render(
+        entries = entries,
+        title = 'HackerNews Top %s Feed' % num,
+        url = 'http://hackernews.lyxint.com/',
+        description = 'HackerNews Top %s Feed, for your convenience' % num,
+        generator = 'https://github.com/lyxint/hackernews_top_N_feed',
+    )
 
     f = get_path('rss', 'top_%d.rss' % num)
     writeto(f, content)
@@ -153,8 +149,8 @@ def run():
             
         if entries:
             entries.extend(last_entries[:1024-len(entries)])
-            save_last_entries(entries, num)
             write_rss_file(entries, num)
+            save_last_entries(entries, num)
         
     log('end.')
 
