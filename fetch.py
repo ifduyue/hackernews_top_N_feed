@@ -124,7 +124,7 @@ def write_rss_file(entries, num):
     content = template.render(
         entries = entries,
         title = 'HackerNews Top %s Feed' % num,
-        url = 'https://github.com/lyxint/hackernews_top_N_feed',
+        url = 'http://hackernews.lyxint.com/top_%d.rss' % num, 
         description = 'HackerNews Top %s Feed, for your convenience' % num,
         generator = 'https://github.com/lyxint/hackernews_top_N_feed',
     )
