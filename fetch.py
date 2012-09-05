@@ -136,7 +136,7 @@ def run():
     url = 'http://news.ycombinator.com/rss'
     all_entries = get_rss_entries(url)
     
-    for num in (1, 3, 5, 10, 15, 20, 25, 30):
+    for num in (1, 3, 5, 10, 15, 20, 25, 30, 1024):
         log('processing top_%d', num)
         last_entries = load_last_entries(num) or []
         entries = []

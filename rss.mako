@@ -20,7 +20,7 @@
       <link>${entry['url']}</link>
       <guid isPermaLink="true">${entry['url']}</guid>
       <description>${entry['title']}</description>
-      <content:encoded><![CDATA[ <a href="${entry['comments']}" title="${entry['title']} comments">comments</a>]]></content:encoded>
+      <content:encoded><![CDATA[<a href="${entry['comments']}" title="${entry['title']} comments">comments</a>]]></content:encoded>
     </item>
 % endfor
   </channel>
