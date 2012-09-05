@@ -143,14 +143,13 @@ def run():
         
         for entry in all_entries[:num]:
             if entry not in last_entries:
-                log('[new] %s(%s) added to %s.rss', entry['title'], entry['url'], num)
+                log('[new] %s (%s) added to %s.rss', entry['title'], entry['url'], num)
                 entries.append(entry)
             
-        entries.extend(last_entries)
-        entries = entries[:1024]
-        
-        save_last_entries(entries, num)
-        write_rss_file(entries, num)
+        if entries:
+            entries.extend(last_entries[:1024-len(entries)])
+            save_last_entries(entries, num)
+            write_rss_file(entries, num)
         
     log('end.')
 
