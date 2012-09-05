@@ -118,16 +118,21 @@ def get_rss_entries(url):
     return entries
 
 def write_rss_file(entries, num):
+    try:
+        template = get_path(filename='rss.mako')
+        template = Template(filename=template)
+        content = template.render(
+            entries = entries,
+            title = 'HackerNews Top %s Feed' % num,
+            url = 'http://hackernews.lyxint.com/',
+            description = 'HackerNews Top %s Feed, for your convenience' % num,
+            generator = 'https://github.com/lyxint/hackernews_top_N_feed',
+        )
+    except Exception, e:
+        log('[error] render top_%d.rss: %s', str(e))
+        return
+
     f = get_path('rss', 'top_%d.rss' % num)
-    template = get_path(filename='rss.mako')
-    template = Template(filename=template)
-    content = template.render(
-        entries = entries,
-        title = 'HackerNews Top %s Feed' % num,
-        url = 'http://hackernews.lyxint.com/',
-        description = 'HackerNews Top %s Feed, for your convenience' % num,
-        generator = 'https://github.com/lyxint/hackernews_top_N_feed',
-    )
     writeto(f, content)
 
 def run():
