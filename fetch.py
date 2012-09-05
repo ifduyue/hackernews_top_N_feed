@@ -129,7 +129,7 @@ def write_rss_file(entries, num):
             generator = 'https://github.com/lyxint/hackernews_top_N_feed',
         )
     except Exception, e:
-        log('[error] render top_%d.rss: %s', str(e))
+        log('[error] render top_%d.rss: %s', num, str(e))
         return
 
     f = get_path('rss', 'top_%d.rss' % num)
