@@ -121,6 +121,7 @@ def write_rss_file(entries, num):
     template = get_path(filename='rss.mako')
     template = Template(filename=template, output_encoding='utf-8', encoding_errors='replace')
     content = template.render(
+        n = num,
         entries = entries,
         title = 'HackerNews Top %s Feed' % num,
         url = 'http://hackernews.lyxint.com/',
