@@ -7,21 +7,21 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>${title}</title>
-    <link>${url}</link>
-    <description>${description}</description>
-    <pubDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate>
-    <generator>${generator}</generator>
+    <title>${title | x,h}</title>
+    <link>${url | x,h}</link>
+    <description>${description | x,h}</description>
+    <pubDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT") | x,h}</pubDate>
+    <generator>${generator} | x,h</generator>
     <atom:link href="http://hackernews.lyxint.com/top_${n}.rss" rel="self" type="application/rss+xml" />
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
 % for entry in entries:
     <item>
-      <title>${entry['title']}</title>
-      <link>${entry['url']}</link>
+      <title>${entry['title'] | x,h}</title>
+      <link>${entry['url'] | x,h}</link>
       <guid isPermaLink="true">${entry['url']}</guid>
-      <description>${entry['title']}</description>
-      <content:encoded><![CDATA[<a href="${entry['comments']}" title="${entry['title']} comments">comments</a>]]></content:encoded>
+      <description>${entry['title'] | x,h}</description>
+      <content:encoded><![CDATA[<a href="${entry['comments'] | x,h}" title="${entry['title'] | x,h} comments">comments</a>]]></content:encoded>
     </item>
 % endfor
   </channel>
