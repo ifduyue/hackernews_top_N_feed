@@ -2,8 +2,6 @@
 #-*- coding: utf8 -*-
 
 import os
-import sys
-import time
 import logging
 import urlfetch
 import feedparser
@@ -118,6 +116,7 @@ def get_rss_entries(url):
     return entries
 
 def write_rss_file(entries, num):
+    log('writing top_%d.rss', num)
     template = get_path(filename='rss.mako')
     template = Template(filename=template, output_encoding='utf-8', encoding_errors='replace')
     content = template.render(
