@@ -6,6 +6,7 @@ import logging
 import urlfetch
 import feedparser
 from mako.template import Template
+from datetime import datetime
 try:
     import simplejson as json
 except ImportError:
@@ -108,7 +109,8 @@ def get_rss_entries(url):
         entry = {
             'title': title, 
             'url': href,
-            'comments': comments
+            'comments': comments,
+            'pubdate': datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT"),
         }
     
         entries.append(entry)
@@ -140,10 +142,12 @@ def run():
     for num in (1, 3, 5, 10, 15, 20, 25, 30, 1024):
         log('processing top_%d', num)
         last_entries = load_last_entries(num) or []
+        last_entries_id = dict.fromkeys('%(title)s - %(url)s' % entry for entry in last_entries)
         entries = []
         
         for entry in all_entries[:num]:
-            if entry not in last_entries:
+            entry_id = '%(title)s - %(url)s' % entry 
+            if entry_id not in last_entries_id:
                 log('[new] %s (%s) added to %s.rss', entry['title'], entry['url'], num)
                 entries.append(entry)
             

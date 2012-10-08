@@ -10,7 +10,7 @@
     <title>${title | x}</title>
     <link>${url | x}</link>
     <description>${description | x}</description>
-    <pubDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT") }</pubDate>
+    <lastBuildDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT") }</lastBuildDate>
     <generator>${generator | x}</generator>
     <atom:link href="http://hackernews.lyxint.com/top_${n}.rss" rel="self" type="application/rss+xml" />
     <sy:updatePeriod>hourly</sy:updatePeriod>
@@ -19,7 +19,8 @@
     <item>
       <title>${entry['title'] | x}</title>
       <link>${entry['url'] | x}</link>
-      <guid isPermaLink="true">${entry['url'] | x}</guid>
+      <pubDate>${entry['pubdate']}</pubDate>
+      <guid isPermaLink="false">${entry['title'] | x} - ${entry['url'] | x}</guid>
       <description>${entry['title'] | x}</description>
       <content:encoded><![CDATA[<a href="${entry['comments'] | x,h}" title="${entry['title'] | x,h} comments">comments</a>]]></content:encoded>
     </item>
