@@ -139,7 +139,7 @@ def run():
     url = 'http://news.ycombinator.com/rss'
     all_entries = get_rss_entries(url)
     
-    for num in (1, 3, 5, 10, 15, 20, 25, 30, 1024):
+    for num in (1, 3, 5, 10, 15, 20, 25, 30, 512, 1024):
         log('processing top_%d', num)
         last_entries = load_last_entries(num) or []
         last_entries_id = dict.fromkeys('%(title)s - %(url)s' % entry for entry in last_entries)
@@ -150,9 +150,10 @@ def run():
             if entry_id not in last_entries_id:
                 log('[new] %s (%s) added to %s.rss', entry['title'], entry['url'], num)
                 entries.append(entry)
-            
+        
         if entries:
-            entries.extend(last_entries[:1024-len(entries)])
+            maxn = 512 if num <= 512 else 1024
+            entries.extend(last_entries[:maxn-len(entries)])
             write_rss_file(entries, num)
             save_last_entries(entries, num)
         
