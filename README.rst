@@ -43,13 +43,13 @@ Feeds
 .. _Top 30@feedburner: http://feeds.feedburner.com/HackernewsTop30Feed
 .. _Top 30@email: http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed
 
-.. _Top 1024: http://hackernews.lyxint.com/top_1024.rss
-.. _Top 1024@feedburner: http://feeds.feedburner.com/HackernewsTop1024Feed
-.. _Top 1024@email: http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop1024Feed
+.. _Top 512: http://hackernews.lyxint.com/top_512.rss
+.. _Top 512@feedburner: http://feeds.feedburner.com/HackernewsTop512Feed
+.. _Top 512@email: http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop512Feed
 
 .. _All: http://hackernews.lyxint.com/all.rss
-.. _All@feedburner: http://feeds.feedburner.com/HackernewsTop1024Feed
-.. _All@email: http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop1024Feed
+.. _All@feedburner: http://feeds.feedburner.com/HackernewsTop512Feed
+.. _All@email: http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop512Feed
 
 
 
