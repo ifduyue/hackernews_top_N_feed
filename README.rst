@@ -67,6 +67,6 @@ Feeds
 
 
 
-Github: `lyxint/hackernews_top_N_feed <https://github.com/lyxint/hackernews_top_N_feed>`_
+Github: `ifduyue/hackernews_top_N_feed <https://github.com/ifduyue/hackernews_top_N_feed>`_
 
-`♺ <http://lyxint.com/>`_ `@lyxint <https://twitter.com/lyxint>`_
+`♺ <http://ifduyue.com/>`_ `@ifduyue <https://twitter.com/ifduyue>`_
