@@ -90,7 +90,7 @@ def log(msg, *args):
 def get_rss_entries(url):
     try:
         log('fetching %s', url)
-        r = urlfetch.get(url, timeout=5, randua=True)
+        r = urlfetch.get(url, timeout=5, randua=True, max_redirects=3)
         log('%d bytes fetched', len(r.body))
         
         log('parsing feed content')
