@@ -22,6 +22,7 @@
       <pubDate>${entry['pubdate']}</pubDate>
       <guid isPermaLink="false">${entry['title'] | x} - ${entry['url'] | x}</guid>
       <description>${entry['title'] | x}</description>
+      <comments>${entry['comments'] | x}</comments>
       <content:encoded><![CDATA[<a href="${entry['comments'] | x,h}" title="${entry['title'] | x,h} comments">comments</a>]]></content:encoded>
     </item>
 % endfor
