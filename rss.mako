@@ -12,7 +12,7 @@
     <description>${description | x}</description>
     <lastBuildDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT") }</lastBuildDate>
     <generator>${generator | x}</generator>
-    <atom:link href="http://hackernews.lyxint.com/top_${n}.rss" rel="self" type="application/rss+xml" />
+    <atom:link href="http://hnfeeds.top/top_${n}.rss" rel="self" type="application/rss+xml" />
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
 % for entry in entries:

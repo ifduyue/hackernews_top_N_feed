@@ -125,9 +125,9 @@ def write_rss_file(entries, num):
         n = num,
         entries = entries,
         title = 'HackerNews Top %s Feed' % num,
-        url = 'http://hackernews.lyxint.com/',
+        url = 'http://hnfeeds.top/',
         description = 'HackerNews Top %s Feed, for your convenience' % num,
-        generator = 'https://github.com/lyxint/hackernews_top_N_feed',
+        generator = 'https://github.com/ifduyue/hackernews_top_N_feed',
     )
 
     f = get_path('rss', 'top_%d.rss' % num)
