@@ -21,7 +21,11 @@
       <link>${entry['url'] | x}</link>
       <pubDate>${entry['pubdate']}</pubDate>
       <guid isPermaLink="false">${entry['title'] | x} - ${entry['url'] | x}</guid>
-      <description>${entry['title'] | x}</description>
+      <description>
+        ${entry['title'] | x}
+        ${"<p>Link: <a" | x} href="${entry['url'] | x,h}" ${">" | x} ${entry['url'] | x} ${"</a>" | x}
+        ${"<p>Comments: <a" | x} href="${entry['comments'] | x,h}" ${">" | x} ${entry['comments'] | x} ${"</a>" | x}
+      </description>
       <comments>${entry['comments'] | x}</comments>
       <content:encoded><![CDATA[<a href="${entry['comments'] | x,h}" title="${entry['title'] | x,h} comments">comments</a>]]></content:encoded>
     </item>
