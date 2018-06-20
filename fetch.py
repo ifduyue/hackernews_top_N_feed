@@ -145,6 +145,7 @@ def run():
         last_entries = load_last_entries(num) or []
         last_entries_dict = OrderedDict((entry['comments'], entry) for entry in last_entries)
         entries = []
+        changed = False
 
         for entry in all_entries[:num]:
             entry_id = entry['comments']
@@ -152,15 +153,15 @@ def run():
                 if entry['title'] != last_entries_dict[entry_id]['title']:
                     # title changed
                     old_title = last_entries_dict[entry_id]['title']
+                    changed = True
                     log('[%s.rss][changed] %s title changed from `%s` to `%s`', num, entry['url'], old_title, entry['title'])
                     last_entries_dict[entry_id]['title'] = entry['title']
             else:
                 log('[%s.rss][new] %s (%s) added', num, entry['title'], entry['url'])
                 entries.append(entry)
 
-        if entries:
+        if entries or changed:
             maxn = 512 if num <= 512 else 1024
-            last_entries = [i[1] for i in last_entries_dict.items()]
             entries.extend(last_entries[:maxn-len(entries)])
             write_rss_file(entries, num)
             save_last_entries(entries, num)
