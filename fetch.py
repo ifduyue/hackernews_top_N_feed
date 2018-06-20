@@ -7,6 +7,7 @@ import urlfetch
 import feedparser
 from mako.template import Template
 from datetime import datetime
+from collections import OrderedDict
 try:
     import simplejson as json
 except ImportError:
@@ -16,17 +17,17 @@ def writeto(path, data):
     fh = open(path, 'w')
     fh.write(data)
     fh.close()
-    
+
 def readfrom(path):
     fh = open(path, 'r')
     data = fh.read()
     fh.close()
     return data
-    
+
 def dumpto(path, obj):
     with open(path, 'wb') as f:
         json.dump(obj, f)
-    
+
 def loadfrom(path):
     f = None
     obj = None
@@ -52,7 +53,7 @@ def get_path(dirname=None, filename=None):
 def load_last_entries(num):
     filename = 'last_entries.%d' % num
     return loadfrom(get_path('data', filename))
-    
+
 def save_last_entries(obj, num):
     filename = 'last_entries.%d' % num
     dumpto(get_path('data', filename), obj)
@@ -67,7 +68,7 @@ def mb_code(s, coding=None):
         except: pass
     return s
 
-def log(msg, *args): 
+def log(msg, *args):
     def init():
         logger = logging.getLogger('wet')
         handler = logging.FileHandler(get_path('data', 'log'))
@@ -84,7 +85,7 @@ def log(msg, *args):
     logger = getattr(log, 'logger', None)
     if logger is None:
         logger = init()
-    
+
     logger.debug(msg, *args)
 
 def get_rss_entries(url):
@@ -92,14 +93,14 @@ def get_rss_entries(url):
         log('fetching %s', url)
         r = urlfetch.get(url, timeout=5, randua=True, max_redirects=3)
         log('%d bytes fetched', len(r.body))
-        
+
         log('parsing feed content')
         d = feedparser.parse(r.body)
         log('parsing OK')
     except Exception, e:
         log('[error] get_rss_entries: %s', str(e))
         return []
-        
+
     entries = []
     for e in d.entries:
         title = mb_code(e.title)
@@ -107,12 +108,12 @@ def get_rss_entries(url):
         comments = mb_code(e['comments'])
 
         entry = {
-            'title': title, 
+            'title': title,
             'url': href,
             'comments': comments,
             'pubdate': datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT"),
         }
-    
+
         entries.append(entry)
 
     return entries
@@ -135,28 +136,35 @@ def write_rss_file(entries, num):
 
 def run():
     log('start.')
-    
+
     url = 'http://news.ycombinator.com/rss'
     all_entries = get_rss_entries(url)
-    
+
     for num in (1, 3, 5, 10, 15, 20, 25, 30, 512, 1024):
         log('processing top_%d', num)
         last_entries = load_last_entries(num) or []
-        last_entries_id = dict.fromkeys('%(title)s - %(url)s' % entry for entry in last_entries)
+        last_entries_dict = OrderedDict((entry['comments'], entry) for entry in last_entries)
         entries = []
-        
+
         for entry in all_entries[:num]:
-            entry_id = '%(title)s - %(url)s' % entry 
-            if entry_id not in last_entries_id:
-                log('[new] %s (%s) added to %s.rss', entry['title'], entry['url'], num)
+            entry_id = entry['comments']
+            if entry_id in last_entries_dict:
+                if entry['title'] != last_entries_dict[entry_id]['title']:
+                    # title changed
+                    old_title = last_entries_dict[entry_id]['title']
+                    log('[%s.rss][changed] %s title changed from `%s` to `%s`', num, entry['url'], old_title, entry['title'])
+                    last_entries_dict[entry_id]['title'] = entry['title']
+            else:
+                log('[%s.rss][new] %s (%s) added', num, entry['title'], entry['url'])
                 entries.append(entry)
-        
+
         if entries:
             maxn = 512 if num <= 512 else 1024
+            last_entries = [i[1] for i in last_entries_dict.items()]
             entries.extend(last_entries[:maxn-len(entries)])
             write_rss_file(entries, num)
             save_last_entries(entries, num)
-        
+
     log('end.')
 
 if __name__ == '__main__':
