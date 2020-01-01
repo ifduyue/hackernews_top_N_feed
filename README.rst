@@ -49,16 +49,17 @@ Feeds
 
 
 
-============ ======================= =====================
-`Top 1`_      `Top 1@feedburner`_     `Top 1@email`_
-`Top 3`_      `Top 3@feedburner`_     `Top 3@email`_
-`Top 5`_      `Top 5@feedburner`_     `Top 5@email`_
-`Top 10`_     `Top 10@feedburner`_    `Top 10@email`_
-`Top 15`_     `Top 15@feedburner`_    `Top 15@email`_
-`Top 20`_     `Top 20@feedburner`_    `Top 20@email`_
-`Top 25`_     `Top 25@feedburner`_    `Top 25@email`_
-`Top 30`_     `Top 30@feedburner`_    `Top 30@email`_
-`All`_        `All@feedburner`_       `All@email`_
-============ ======================= =====================
+============ =============================================
+`Top 1`_      `rss <https://hnfeeds.top/top_1.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop1Feed>`__   `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop1Feed>`__
+`Top 3`_      `rss <https://hnfeeds.top/top_3.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop3Feed>`__   `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop3Feed>`__
+`Top 5`_      `rss <https://hnfeeds.top/top_5.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop5Feed>`__   `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop5Feed>`__
+`Top 10`_     `rss <https://hnfeeds.top/top_10.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop10Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop10Feed>`__
+`Top 15`_     `rss <https://hnfeeds.top/top_15.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop15Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop15Feed>`__
+`Top 20`_     `rss <https://hnfeeds.top/top_20.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop20Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop20Feed>`__
+`Top 25`_     `rss <https://hnfeeds.top/top_25.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop25Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop25Feed>`__
+`Top 30`_     `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed>`__
+`All`_        `rss <https://hnfeeds.top/all.rss>`__    `feedburner <http://feeds.feedburner.com/HackernewsTop512Feed>`__ `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop512Feed>`__
+============ =============================================
+
 
 
