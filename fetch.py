@@ -2,6 +2,7 @@
 #-*- coding: utf8 -*-
 
 import os
+import sys
 import logging
 import urlfetch
 import feedparser
@@ -12,6 +13,10 @@ try:
     import simplejson as json
 except ImportError:
     import json
+
+py3k = sys.version_info >= (3, 0)
+if py3k:
+    unicode = str
 
 def writeto(path, data):
     fh = open(path, 'w')
@@ -97,7 +102,7 @@ def get_rss_entries(url):
         log('parsing feed content')
         d = feedparser.parse(r.body)
         log('parsing OK')
-    except Exception, e:
+    except Exception as e:
         log('[error] get_rss_entries: %s', str(e))
         return []
 
