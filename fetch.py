@@ -19,18 +19,18 @@ if py3k:
     unicode = str
 
 def writeto(path, data):
-    fh = open(path, 'w')
+    fh = open(path, 'wb')
     fh.write(data)
     fh.close()
 
 def readfrom(path):
-    fh = open(path, 'r')
+    fh = open(path, 'rb')
     data = fh.read()
     fh.close()
     return data
 
 def dumpto(path, obj):
-    with open(path, 'wb') as f:
+    with open(path, 'w') as f:
         json.dump(obj, f)
 
 def loadfrom(path):
@@ -55,12 +55,12 @@ def get_path(dirname=None, filename=None):
         f = os.path.join(f, filename)
     return f
 
-def load_last_entries(num):
-    filename = 'last_entries.%d' % num
+def load_last_entries(num, prefix=None):
+    filename = 'last_entries.%d' % num if not prefix else 'last_entries.%s_%d' % (prefix, num)
     return loadfrom(get_path('data', filename))
 
-def save_last_entries(obj, num):
-    filename = 'last_entries.%d' % num
+def save_last_entries(obj, num, prefix=None):
+    filename = 'last_entries.%d' % num if not prefix else 'last_entries.%s_%d' % (prefix, num)
     dumpto(get_path('data', filename), obj)
 
 def mb_code(s, coding=None):
@@ -123,20 +123,21 @@ def get_rss_entries(url):
 
     return entries
 
-def write_rss_file(entries, num):
-    log('writing top_%d.rss', num)
+def write_rss_file(entries, num, prefix=None):
+    tofilename = 'top_%d.rss' % num if not prefix else '%s_%d.rss' % (prefix, num)
+    log('writing %s', tofilename)
     template = get_path(filename='rss.mako')
     template = Template(filename=template, output_encoding='utf-8', encoding_errors='replace')
     content = template.render(
         n = num,
         entries = entries,
-        title = 'HackerNews Top %s Feed' % num,
+        title = '%s Top %s Feed' % (prefix or "Hackernews", num),
         url = 'http://hnfeeds.top/',
-        description = 'HackerNews Top %s Feed, for your convenience' % num,
+        description = '%s Top %s Feed, for your convenience' % (prefix or "Hackernews", num),
         generator = 'https://github.com/ifduyue/hackernews_top_N_feed',
     )
 
-    f = get_path('rss', 'top_%d.rss' % num)
+    f = get_path('rss', tofilename)
     writeto(f, content)
 
 def run():
@@ -173,5 +174,40 @@ def run():
 
     log('end.')
 
+def run_lobsters():
+    log('start.')
+
+    url = 'http://lobste.rs/rss'
+    all_entries = get_rss_entries(url)
+
+    for num in (1, 3, 5, 10, 15, 20, 25, 30, 512, 1024):
+        log('processing top_%d', num)
+        last_entries = load_last_entries(num, prefix="lobsters") or []
+        last_entries_dict = OrderedDict((entry['comments'], entry) for entry in last_entries)
+        entries = []
+        changed = False
+
+        for entry in all_entries[:num]:
+            entry_id = entry['comments']
+            if entry_id in last_entries_dict:
+                if entry['title'] != last_entries_dict[entry_id]['title']:
+                    # title changed
+                    old_title = last_entries_dict[entry_id]['title']
+                    changed = True
+                    log('[%s.rss][changed] %s title changed from `%s` to `%s`', num, entry['url'], old_title, entry['title'])
+                    last_entries_dict[entry_id]['title'] = entry['title']
+            else:
+                log('[%s.rss][new] %s (%s) added', num, entry['title'], entry['url'])
+                entries.append(entry)
+
+        if entries or changed:
+            maxn = 512 if num <= 512 else 1024
+            entries.extend(last_entries[:maxn-len(entries)])
+            write_rss_file(entries, num, prefix="lobsters")
+            save_last_entries(entries, num, prefix="lobsters")
+
+    log('end.')
+
 if __name__ == '__main__':
     run()
+    run_lobsters()
