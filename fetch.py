@@ -5,7 +5,7 @@ from pathlib import Path
 import urlfetch
 import feedparser
 from mako.template import Template
-from datetime import datetime
+from datetime import datetime, timezone
 from collections import OrderedDict
 import json
 
@@ -95,7 +95,7 @@ def get_rss_entries(url):
             "title": title,
             "url": href,
             "comments": comments,
-            "pubdate": datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT"),
+            "pubdate": datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT"),
         }
 
         entries.append(entry)
