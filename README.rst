@@ -4,8 +4,8 @@ HackerNews Top N Feed
 HackerNews Top N Feed, for your convenience.
 
 
-Feeds
-------
+HackerNews Feeds
+----------------
 
 .. _Top 1: https://hnfeeds.top/top_1.rss
 .. _Top 1@feedburner: http://feeds.feedburner.com/HackernewsTop1Feed
@@ -58,8 +58,27 @@ Feeds
 `Top 20`_     `rss <https://hnfeeds.top/top_20.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop20Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop20Feed>`__
 `Top 25`_     `rss <https://hnfeeds.top/top_25.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop25Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop25Feed>`__
 `Top 30`_     `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed>`__
+`Top 30`_     `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed>`__
+`Top 512`_    `rss <https://hnfeeds.top/top_512.rss>`__
+`Top 1024`_   `rss <https://hnfeeds.top/top_1024.rss>`__
 `All`_        `rss <https://hnfeeds.top/all.rss>`__    `feedburner <http://feeds.feedburner.com/HackernewsTop512Feed>`__ `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop512Feed>`__
 ============ =============================================
 
+
+Lobsters Feeds
+---------------
+
+============ ================================================
+`Top 1`_      `rss <https://hnfeeds.top/lobsters_1.rss>`__
+`Top 3`_      `rss <https://hnfeeds.top/lobsters_3.rss>`__
+`Top 5`_      `rss <https://hnfeeds.top/lobsters_5.rss>`__
+`Top 10`_     `rss <https://hnfeeds.top/lobsters_10.rss>`__
+`Top 15`_     `rss <https://hnfeeds.top/lobsters_15.rss>`__
+`Top 20`_     `rss <https://hnfeeds.top/lobsters_20.rss>`__
+`Top 25`_     `rss <https://hnfeeds.top/lobsters_25.rss>`__
+`Top 30`_     `rss <https://hnfeeds.top/lobsters_30.rss>`__
+`Top 512`_    `rss <https://hnfeeds.top/lobsters_512.rss>`__
+`Top 1024`_   `rss <https://hnfeeds.top/lobsters_1024.rss>`__
+============ ================================================
 
 
