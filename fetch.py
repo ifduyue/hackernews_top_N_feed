@@ -9,10 +9,7 @@ import feedparser
 from mako.template import Template
 from datetime import datetime
 from collections import OrderedDict
-try:
-    import simplejson as json
-except ImportError:
-    import json
+import json
 
 py3k = sys.version_info >= (3, 0)
 if py3k:
