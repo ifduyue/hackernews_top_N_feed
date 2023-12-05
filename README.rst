@@ -59,8 +59,6 @@ HackerNews Feeds
 `Top 25`_     `rss <https://hnfeeds.top/top_25.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop25Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop25Feed>`__
 `Top 30`_     `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed>`__
 `Top 30`_     `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__  `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop30Feed>`__
-`Top 512`_    `rss <https://hnfeeds.top/top_512.rss>`__
-`Top 1024`_   `rss <https://hnfeeds.top/top_1024.rss>`__
 `All`_        `rss <https://hnfeeds.top/all.rss>`__    `feedburner <http://feeds.feedburner.com/HackernewsTop512Feed>`__ `email <http://feedburner.google.com/fb/a/mailverify?uri=HackernewsTop512Feed>`__
 ============ =============================================
 
