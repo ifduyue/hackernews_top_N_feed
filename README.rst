@@ -68,7 +68,7 @@ HackerNews Feeds
 Lobsters Feeds
 ---------------
 
-====================================================
+=====================================================
 `Top 1    <https://hnfeeds.top/lobsters_1.rss>`__
 `Top 3    <https://hnfeeds.top/lobsters_3.rss>`__
 `Top 5    <https://hnfeeds.top/lobsters_5.rss>`__
@@ -79,6 +79,6 @@ Lobsters Feeds
 `Top 30   <https://hnfeeds.top/lobsters_30.rss>`__
 `Top 512  <https://hnfeeds.top/lobsters_512.rss>`__
 `Top 1024 <https://hnfeeds.top/lobsters_1024.rss>`__
-====================================================
+=====================================================
 
 
