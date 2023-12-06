@@ -1,4 +1,4 @@
-HackerNews Top N Feed
+Top N Feeds
 ===========================
 
 Feeds for your convenience.
