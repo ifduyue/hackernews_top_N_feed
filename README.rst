@@ -7,34 +7,28 @@ Feeds for your convenience.
 HackerNews Feeds
 ----------------
 
-============ =============================================
-Top 1        `rss <https://hnfeeds.top/top_1.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop1Feed>`__
-Top 3        `rss <https://hnfeeds.top/top_3.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop3Feed>`__
-Top 5        `rss <https://hnfeeds.top/top_5.rss>`__  `feedburner <http://feeds.feedburner.com/HackernewsTop5Feed>`__
-Top 10       `rss <https://hnfeeds.top/top_10.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop10Feed>`__
-Top 15       `rss <https://hnfeeds.top/top_15.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop15Feed>`__
-Top 20       `rss <https://hnfeeds.top/top_20.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop20Feed>`__
-Top 25       `rss <https://hnfeeds.top/top_25.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop25Feed>`__
-Top 30       `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__
-Top 30       `rss <https://hnfeeds.top/top_30.rss>`__ `feedburner <http://feeds.feedburner.com/HackernewsTop30Feed>`__
-Top 512      `rss <https://hnfeeds.top/top_512.rss>`__
-Top 1024     `rss <https://hnfeeds.top/top_1024.rss>`__
-All          `rss <https://hnfeeds.top/all.rss>`__    `feedburner <http://feeds.feedburner.com/HackernewsTop512Feed>`__
-============ =============================================
+* `Top 1 <https://hnfeeds.top/top_1.rss>`__
+* `Top 3 <https://hnfeeds.top/top_3.rss>`__
+* `Top 5 <https://hnfeeds.top/top_5.rss>`__
+* `Top 10 <https://hnfeeds.top/top_10.rss>`__
+* `Top 15 <https://hnfeeds.top/top_15.rss>`__
+* `Top 20 <https://hnfeeds.top/top_20.rss>`__
+* `Top 25 <https://hnfeeds.top/top_25.rss>`__
+* `Top 30 <https://hnfeeds.top/top_30.rss>`__
+* `Top 512 <https://hnfeeds.top/top_512.rss>`__
+* `Top 1024 <https://hnfeeds.top/top_1024.rss>`__
 
 
 Lobsters Feeds
 ---------------
 
-============ =============================================
-Top 1        `rss <https://hnfeeds.top/lobsters_1.rss>`__
-Top 3        `rss <https://hnfeeds.top/lobsters_3.rss>`__
-Top 5        `rss <https://hnfeeds.top/lobsters_5.rss>`__
-Top 10       `rss <https://hnfeeds.top/lobsters_10.rss>`__
-Top 15       `rss <https://hnfeeds.top/lobsters_15.rss>`__
-Top 20       `rss <https://hnfeeds.top/lobsters_20.rss>`__
-Top 25       `rss <https://hnfeeds.top/lobsters_25.rss>`__
-Top 30       `rss <https://hnfeeds.top/lobsters_30.rss>`__
-Top 512      `rss <https://hnfeeds.top/lobsters_512.rss>`__
-Top 1024     `rss <https://hnfeeds.top/lobsters_1024.rss>`__
-============ =============================================
+* `Top 1 <https://hnfeeds.top/lobsters_1.rss>`__
+* `Top 3 <https://hnfeeds.top/lobsters_3.rss>`__
+* `Top 5 <https://hnfeeds.top/lobsters_5.rss>`__
+* `Top 10 <https://hnfeeds.top/lobsters_10.rss>`__
+* `Top 15 <https://hnfeeds.top/lobsters_15.rss>`__
+* `Top 20 <https://hnfeeds.top/lobsters_20.rss>`__
+* `Top 25 <https://hnfeeds.top/lobsters_25.rss>`__
+* `Top 30 <https://hnfeeds.top/lobsters_30.rss>`__
+* `Top 512 <https://hnfeeds.top/lobsters_512.rss>`__
+* `Top 1024 <https://hnfeeds.top/lobsters_1024.rss>`__
